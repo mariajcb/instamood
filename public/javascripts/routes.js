@@ -8,5 +8,5 @@ app.config(function($routeProvider, $locationProvider){
   //   templateUrl: '../partials/login.html',
   //   controller: 'auth'
   // })
-  $locationProvider.html5Mode(true);
+  // $locationProvider.html5Mode(true);
 })
