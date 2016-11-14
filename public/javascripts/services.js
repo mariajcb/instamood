@@ -1,3 +1,6 @@
+app.service('loginService', function($resource){
+})
+
 app.service('imgService', function($http, $resource) {
  return {
   getImage: function() {

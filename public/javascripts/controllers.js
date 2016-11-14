@@ -1,3 +1,8 @@
+app.controller('LoginController', ['$scope', 'loginService', function($scope, loginService){
+  $scope.vm = {};
+  
+}])
+
 app.controller('MoodController', ['$scope', 'imgService', function($scope, imgService) {
  $scope.vm = {};
  /* Get relevant info from general user query */
@@ -10,6 +15,9 @@ app.controller('MoodController', ['$scope', 'imgService', function($scope, imgSe
   })
  })
 }])
+
+
+
 
 require([
   "esri/Map",

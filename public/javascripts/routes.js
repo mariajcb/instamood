@@ -1,5 +1,9 @@
 app.config(function($routeProvider, $locationProvider){
   $routeProvider
+  .when('/', {
+    templateUrl: '../partials/login.html',
+    controller: 'LoginController'
+  })
   .when('/mood', {
     templateUrl: '../partials/mood.html',
     controller: 'MoodController'
