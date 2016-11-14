@@ -12,9 +12,9 @@ app.config(function($routeProvider, $locationProvider){
     templateUrl: '../partials/map.html',
     controller: 'MoodController'
   })
-  // .when('/', {
-  //   templateUrl: '../partials/login.html',
-  //   controller: 'auth'
-  // })
+  .when('/:id', {
+    templateUrl: '../partials/login.html',
+    controller: 'LoginController'
+  })
   $locationProvider.html5Mode(true);
 })
