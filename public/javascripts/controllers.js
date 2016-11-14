@@ -3,7 +3,6 @@ app.controller('MoodController', ['$scope', 'imgService', function($scope, imgSe
  $scope.vm.src = getImage();
 
  function getImage() {
-  console.log('i here');
   return imgService.getImage();
  }
 }])

@@ -23,7 +23,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', api);
 app.all('*', (req,res,next) => {
-  res.sendFile('index.html', { root: __dirname + '/public/'})
+  res.sendFile('index.html', { root: __dirname + '/public/'});
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token');
 })
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
