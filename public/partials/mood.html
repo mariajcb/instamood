@@ -1,5 +1,8 @@
 <div ng-controller="MoodController" class="row">
-  <div class="col-sm-12 mood">
-    <img src="{{vm.src}}"/>
+  <div class="col-sm-12">
+    <img ng-src="{{vm.src}}"/>
+  </div>
+  <div class="col-sm-3" ng-repeat="img in vm.imgs">
+    <img style="width:100%" ng-src="{{img.images.standard_resolution.url}}"/>
   </div>
 </div>
