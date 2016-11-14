@@ -1,5 +1,9 @@
 app.config(function($routeProvider, $locationProvider){
   $routeProvider
+  .when('/', {
+    templateUrl: '../partials/login.html',
+    controller: 'LoginController'
+  })
   .when('/mood', {
     templateUrl: '../partials/mood.html',
     controller: 'MoodController'
@@ -8,9 +12,9 @@ app.config(function($routeProvider, $locationProvider){
     templateUrl: '../partials/map.html',
     controller: 'MoodController'
   })
-  // .when('/', {
-  //   templateUrl: '../partials/login.html',
-  //   controller: 'auth'
-  // })
+  .when('/:id', {
+    templateUrl: '../partials/login.html',
+    controller: 'LoginController'
+  })
   $locationProvider.html5Mode(true);
 })
