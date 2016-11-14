@@ -3,6 +3,7 @@ app.controller('MoodController', ['$scope', 'imgService', function($scope, imgSe
  /* Get relevant info from general user query */
  imgService.getImage().getInstaData().$promise.then(function(data) {
   $scope.vm.src = data.data.profile_picture;
+  //put people in database HERE
   var userID = data.data.id;
   imgService.getMedia(userID).getInstaData().$promise.then(function(data){
     $scope.vm.imgs = data.data;

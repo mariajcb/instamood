@@ -4,8 +4,15 @@ exports.up = function(knex) {
     table.string('username')
       .unique()
       .notNullable();
-    table.string('token')
+    table.integer('insta_id')
       .notNullable();
+    table.integer('mood_id')
+      .references('moods.id')
+      .onDelete('CASCADE')
+      .notNullable()
+      .index();
+    table.float('latitude');
+    table.float('longitude');
   });
 };
 
