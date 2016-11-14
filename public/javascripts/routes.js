@@ -4,6 +4,11 @@ app.config(function($routeProvider, $locationProvider){
     templateUrl: '../partials/mood.html',
     controller: 'MoodController'
   })
+
+  .when('/map', {
+    templateUrl: '../partials/map.html',
+    controller: 'MoodController'
+  })
   // .when('/', {
   //   templateUrl: '../partials/login.html',
   //   controller: 'auth'
