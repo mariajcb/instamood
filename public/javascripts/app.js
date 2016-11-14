@@ -1,1 +1,1 @@
-var app = angular.module('instamood', ['ngRoute', 'ngCookies']);
+var app = angular.module('instamood', ['ngRoute', 'ngCookies', 'ngResource']);

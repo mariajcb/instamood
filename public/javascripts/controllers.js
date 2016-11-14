@@ -1,8 +1,6 @@
 app.controller('MoodController', ['$scope', 'imgService', function($scope, imgService) {
  $scope.vm = {};
- $scope.vm.src = getImage();
-
- function getImage() {
-  return imgService.getImage();
- }
+ imgService.getImage().getInstaData().$promise.then(function(data) {
+  $scope.vm.src = data.data.profile_picture;
+ })
 }])
