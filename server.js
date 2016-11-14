@@ -14,16 +14,19 @@ var auth = require('./routes/auth');
 var app = express();
 
 var INSTAGRAM_CLIENT_ID = "71589482a5274c6d843f7577cd3c5b94"
-var INSTAGRAM_CLIENT_SECRET = "062f933447c14f1f96351bf591a86d8";
+var INSTAGRAM_CLIENT_SECRET = "062f933447c14f1f96351bf591a86d8"
+
 
 passport.use(new InstagramStrategy({
     clientID: INSTAGRAM_CLIENT_ID,
     clientSecret: INSTAGRAM_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/instagram/callback"
+    callbackURL: "http://localhost:3000/auth/instagram/callback",
+    state: true
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
     process.nextTick(function () {
+      console.log(`Passport INSTAGRAM, profile `, profile);
 
       // To keep the example simple, the user's Instagram profile is returned to
       // represent the logged-in user.  In a typical application, you would want
@@ -36,7 +39,6 @@ passport.use(new InstagramStrategy({
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

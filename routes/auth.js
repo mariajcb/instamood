@@ -2,18 +2,19 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 
-// app.get('/', function(req, res){
+console.log(`auth js is firing`);
+
+// router.get('/', function(req, res){
 //   res.render('index', { user: req.user });
 // });
-//
-// app.get('/account', ensureAuthenticated, function(req, res){
+
+// router.get('/account', ensureAuthenticated, function(req, res){
 //   res.render('account', { user: req.user });
 // });
-//
-// app.get('/login', function(req, res){
+
+// router.get('/login', function(req, res){
 //   res.render('login', { user: req.user });
 // });
-
 
 router.get('/instagram',
   passport.authenticate('instagram'),
@@ -26,10 +27,11 @@ router.get('/instagram',
 router.get('/instagram/callback',
   passport.authenticate('instagram', { failureRedirect: '/login' }),
   function(req, res) {
+    console.log(`INSTAGRAM IS FIRING`);
     res.redirect('/');
   });
 
-// app.get('/logout', function(req, res){
+// router.get('/logout', function(req, res){
 //   req.logout();
 //   res.redirect('/');
 // });
