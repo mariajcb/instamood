@@ -20,6 +20,7 @@ app.controller('MoodController', ['$window', '$scope', 'imgService', 'moodServic
   imgService.getUser($window.localStorage['accessToken']).getInstaData().$promise.then(function(userData) {
       $scope.vm.username = userData.data.username;
       var userID = userData.data.id;
+      var userImg = userData.data.profile_picture;
       //get user media from Instagram API
       imgService.getMedia($window.localStorage['accessToken'],userID).getInstaData().$promise.then(function(userMedia){
         var images = userMedia.data;
@@ -34,11 +35,10 @@ app.controller('MoodController', ['$window', '$scope', 'imgService', 'moodServic
               delete returnArr[0].scores.neutral;
               $scope.vm.mood = Object.keys(returnArr[0].scores).reduce(function(a, b){ return returnArr[0].scores[a] > returnArr[0].scores[b] ? a : b });
               $scope.vm.img = returnArr[1];
+              var mood = moodService.getMoodId($scope.vm.mood);
+              moodService.seedUser($scope.vm.username, userImg, mood);
             }
           })
-          if(returnArr.length){
-            break;
-          }
         }
       })
      })
