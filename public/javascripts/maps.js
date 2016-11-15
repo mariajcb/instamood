@@ -65,10 +65,7 @@ require([
         }
       ]
     };
-40.010687, -105.291135
-40.012183, -105.290878
-40.019463, -105.278003
-40.017562, -105.289375
+
   var dbCoords = [{lat:-105.291135,long:40.010687},{lat:-105.290878,long:40.012183},{lat:-105.278003,long:40.019463},{lat:-105.289375,long:40.019462}]
         dbCoords.forEach(coord=>{
            var coords = new Point(coord.lat,coord.long)
