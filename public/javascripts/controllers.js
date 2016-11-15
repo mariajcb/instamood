@@ -42,8 +42,18 @@ app.controller('MoodController', ['$window', '$scope', 'imgService', 'moodServic
                     break;
                 }
             }
+
         })
     })
+
+          })
+          if(returnArr.length){
+            break;
+          }
+        }
+      })
+     })
+
 }])
 
 //UsrsController handles getting lat and long from our moods database
