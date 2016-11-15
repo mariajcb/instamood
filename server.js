@@ -48,5 +48,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
 });
 
+//for heroku deployment
+const port = process.env.PORT || 8000;
+app.listen(port, () => {
+console.log('Listening on port', port);
+});
+
 
 module.exports = app;
