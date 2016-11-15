@@ -3,46 +3,46 @@ exports.seed = function(knex) {
     .then(() => {
       return knex('users').insert([{
         username: 'ali',
-        insta_id: 123,
+        user_img: 'https://picturetheday.shootproof.com/gallery/3041465/photo/383127853',
         mood_id: 1,
-        latitude: 40.017356,
-        longitude: -105.279302
+        Lat: 40.017356,
+        Long: -105.279302
       },{
         username: 'yames',
-        insta_id: 123,
+        user_img: 'https://avatars2.githubusercontent.com/u/13577826?v=3&s=460',
         mood_id: 2,
-        latitude: 40.015713,
-        longitude:-105.275612
+        Lat: 40.015713,
+        Long:-105.275612
       },{
         username: 'bouchard',
-        insta_id: 123,
+        user_img: 'https://avatars1.githubusercontent.com/u/10106752?v=3&s=460',
         mood_id: 3,
-        latitude: 40.017750,
-        longitude:-105.278315
+        Lat: 40.017750,
+        Long:-105.278315
       },{
         username: 'tara',
-        insta_id: 123,
+        user_img: 'https://media.licdn.com/media/AAEAAQAAAAAAAAgMAAAAJGJkZTEwMDNmLTcwNDYtNGUwMi1hNzUzLWVmYmExYjUyNTBkYQ.jpg',
         mood_id: 4,
-        latitude: 40.013182,
-        longitude: -105.279259
+        Lat: 40.013182,
+        Long: -105.279259
       },{
-        username: 'phoebe',
-        insta_id: 123,
+        username: 'craag',
+        user_img: 'https://media.licdn.com/media/p/2/005/09a/133/1d2dbf7.jpg',
         mood_id: 5,
-        latitude: 40.015680,
-        longitude:-105.275397
+        Lat: 40.015680,
+        Long:-105.275397
       },{
-        username: 'stephanie',
-        insta_id: 123,
+        username: 'stefani',
+        user_img: 'https://media.licdn.com/media/AAEAAQAAAAAAAAlEAAAAJDA0M2RiMmNkLWI3NmMtNDYwZi1hNWZjLThmNzJjMjg5ODZlNw.jpg',
         mood_id: 6,
-        latitude: 40.019887,
-        longitude:-105.274152
+        Lat: 40.019887,
+        Long:-105.274152
       },{
-        username: 'tucker',
-        insta_id: 123,
+        username: 'cherrybomb',
+        user_img: 'http://i63.tinypic.com/15ovsyv.jpg',
         mood_id: 7,
-        latitude: 40.018802,
-        longitude:-105.297284
+        Lat: 40.018802,
+        Long:-105.297284
       }]);
     });
 };

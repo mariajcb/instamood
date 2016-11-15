@@ -36,7 +36,7 @@ app.controller('MoodController', ['$window', '$scope', 'imgService', 'moodServic
               $scope.vm.img = returnArr[1];
             }
           })
-          if(returnArr.length!==0){
+          if(returnArr.length){
             break;
           }
         }
