@@ -43,12 +43,6 @@ exports.seed = function(knex) {
         mood_id: 7,
         latitude: 40.018802,
         longitude:-105.297284
-      },{
-        username: 'cherrybomb',
-        insta_id: 123,
-        mood_id: 8,
-        latitude: 40.008054,
-        longitude:-105.292821
       }]);
     });
 };

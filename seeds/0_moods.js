@@ -12,8 +12,6 @@ exports.seed = function(knex) {
    }, {
     mood: 'happiness'
    }, {
-    mood: 'neutral'
-   }, {
     mood: 'sadness'
    }, {
     mood: 'surprise'

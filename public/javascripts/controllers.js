@@ -31,6 +31,7 @@ app.controller('MoodController', ['$window', '$scope', 'imgService', 'moodServic
           moodService.getMood(image).then(function(data){
             if(data){
               returnArr = data;
+              delete returnArr[0].scores.neutral;
               $scope.vm.mood = Object.keys(returnArr[0].scores).reduce(function(a, b){ return returnArr[0].scores[a] > returnArr[0].scores[b] ? a : b });
               $scope.vm.img = returnArr[1];
             }
