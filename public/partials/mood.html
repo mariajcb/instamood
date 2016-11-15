@@ -54,7 +54,7 @@
                         <img class="avatar" src="assets/img/kelsey.jpg" alt="..." />
                         <h4 class="title">{{vm.username}}<br />
                             <small>your mood is</small>
-                            </h4>{{vm.mood}}</h4>
+                          </h2>{{vm.mood}}</h2>
                         </h4>
                     </a>
                 </div>
@@ -62,20 +62,12 @@
             <hr>
         </div>
     </div>
+</div>
     <!-- end profile picture -->
 
 
-    <div class="row">
-        <div class="col-sm-12">
-            <img style="width:100%" ng-src="{{vm.img}}" />
-        </div>
-    </div>
-
     <div class="section section-gray">
         <div class="container">
-            <div class="tim-title">
-                <h3>Cards</h3>
-            </div>
             <h6>Most Recent:</h6>
             <div class="row" id="blog-cards">
                 <div class="col-md-4">
@@ -101,10 +93,69 @@
                             </div>
                         </div>
                     </div>
+                  </div>
+                    <!-- end card -->
+                    <div class="col-md-4">
+                      <div class="card">
+                        <div class="image">
+                            <img style="width:100%" ng-src="{{vm.img}}" />
+                            <div class="filter">
+                                <button type="button" class="btn btn-neutral btn-simple">
+                                    <i class="fa fa-bookmark-o"></i></h4>{{vm.mood}}</h4>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <a class="card-link" href="#">
+                                <h4 class="title">{{vm.caption}}</h4>
+                            </a>
+                            <div class="footer">
+                                <div class="author">
+                                    <a class="card-link" href="#">
+                                        <i class="fa fa-female"></i>{{vm.username}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                    <!-- end card -->
+                    <div class="col-md-4">
+                      <div class="card">
+                        <div class="image">
+                            <img style="width:100%" ng-src="{{vm.img}}" />
+                            <div class="filter">
+                                <button type="button" class="btn btn-neutral btn-simple">
+                                    <i class="fa fa-bookmark-o"></i></h4>{{vm.mood}}</h4>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <a class="card-link" href="#">
+                                <h4 class="title">{{vm.caption}}</h4>
+                            </a>
+                            <div class="footer">
+                                <div class="author">
+                                    <a class="card-link" href="#">
+                                        <i class="fa fa-female"></i>{{vm.username}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
                     <!-- end card -->
                 </div>
+              </div>
+        </div>
 
-                <div class="row text-center">
+        <div class="row">
+            <div class="col-sm-12">
+                <img style="width:100%" ng-src="{{vm.img}}" />
+            </div>
+        </div>
+        
+              <div class="row text-center">
                     <div class="col-sm-12">
                         <h4 class="title">Or choose from these moods: </h4>
                     </div>
