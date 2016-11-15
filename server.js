@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var api = require('./routes/api');
-var person = require('./routes/person');
+var person = require('./routes/personality');
 
 var app = express();
 
@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', api);
-app.use('/person', person);
+app.use('/personality', person);
 
 app.all('*', (req,res,next) => {
   res.sendFile('index.html', { root: __dirname + '/public/'});

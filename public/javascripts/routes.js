@@ -12,7 +12,7 @@ app.config(function($routeProvider, $locationProvider){
     templateUrl: '../partials/map.html',
     controller: ''
   })
-  .when('/person', {
+  .when('/personality', {
     templateUrl: '../partials/person.html',
     controller: 'PersonController'
   })
