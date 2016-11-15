@@ -12,6 +12,10 @@ app.config(function($routeProvider, $locationProvider){
     templateUrl: '../partials/map.html',
     controller: ''
   })
+  .when('/person', {
+    templateUrl: '../partials/person.html',
+    controller: 'PersonController'
+  })
   .when('/:id', {
     templateUrl: '../partials/login.html',
     controller: 'LoginController'

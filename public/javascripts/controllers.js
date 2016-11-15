@@ -43,3 +43,26 @@ app.controller('MoodController', ['$window', '$scope', 'imgService', 'moodServic
       })
      })
 }])
+//
+app.controller('PersonController', ['$window', '$scope', 'imgService', 'moodService', 'personService', function($window, $scope, imgService, moodService, personService){
+console.log(`PERSON CONTROLLER IS FIRING`);
+  $scope.vm = {};
+  //get user data from Instagram API
+  imgService.getUser($window.localStorage['accessToken']).getInstaData().$promise.then(function(userData) {
+      $scope.vm.username = userData.data.username;
+      var userID = userData.data.id;
+      //get user media from Instagram API
+      imgService.getMedia($window.localStorage['accessToken'],userID).getInstaData().$promise.then(function(userMedia){
+        var captions = userMedia.data;
+        //returnArr will contain the mood analysis object and the url of the corresponding image
+        var text = "";
+        // //loop through user's media to analyze with Emotion API
+        for(var i = 0; i < captions.length; i++){
+          var caption = captions[i].caption.text;
+          text += caption;
+        }
+        console.log(`THIS IS TEXT`, text);
+        // personService.getPerson.getWatsonData().$promise.then(function(data) {})
+      })
+     })
+}])

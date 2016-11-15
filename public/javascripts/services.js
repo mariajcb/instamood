@@ -68,3 +68,12 @@ app.service('moodService', function($http) {
   }
  }
 })
+
+//personService queries IMB Watson API
+app.factory(`PostsService`, [`$http`, function($http) {
+    return {
+        person: function() {
+            return $http.get(`/person`)
+        }
+    }
+}])
