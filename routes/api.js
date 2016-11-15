@@ -1,8 +1,12 @@
 var express = require('express');
 var router = express.Router();
 const knex = require('../knex');
+router.get('/users', function(req, res, next) {
+  knex('users')
+  .then(users => {
+    res.send(users)
+  })
 
-/* GET home page. */
 router.post('/api/mood', function(req, res, next) {
   knex('users')
     .where('username', req.body.username)
@@ -22,5 +26,6 @@ router.post('/api/mood', function(req, res, next) {
       }
     })
 });
+
 
 module.exports = router;

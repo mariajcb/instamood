@@ -46,61 +46,78 @@ app.service('imgService', function($resource) {
  })
  //moodService queries the Microsoft Cognitive Services Emotion API
 app.service('moodService', function($http) {
- return {
-  getMood: function(image) {
-   var req = {
-    method: 'POST',
-    url: 'https://api.projectoxford.ai/emotion/v1.0/recognize',
-    headers: {
-     'Content-Type': 'application/json',
-     'Ocp-Apim-Subscription-Key': 'ccbc67bfc9d14545abd87142a0a4d0cd'
+   return {
+    getMood: function(image) {
+     var req = {
+      method: 'POST',
+      url: 'https://api.projectoxford.ai/emotion/v1.0/recognize',
+      headers: {
+       'Content-Type': 'application/json',
+       'Ocp-Apim-Subscription-Key': 'ccbc67bfc9d14545abd87142a0a4d0cd'
+      },
+      data: {
+       'url': image.images.standard_resolution.url
+      }
+     }
+     return $http(req).then(function(data) {
+      if (data.data.length === 0) {} else {
+       return [data.data[0], image.images.standard_resolution.url];
+      }
+     });
     },
-    data: {
-     'url': image.images.standard_resolution.url
+    getMoodId: function(mood) {
+     console.log(mood);
+     var id = 0;
+     switch (mood) {
+      case 'anger':
+       id = 1;
+       break;
+      case 'contempt':
+       id = 2;
+       break;
+      case 'disgust':
+       id = 3;
+       break;
+      case 'fear':
+       id = 4;
+       break;
+      case 'happiness':
+       id = 5;
+       break;
+      case 'sadness':
+       id = 6;
+       break;
+      case 'surprise':
+       id = 7;
+       break;
+     }
+     return id;
+    },
+    seedUser: function(username, img, mood) {
+     var reqObj = {
+      username: username,
+      img: img,
+      mood: mood
+     };
+     return $http.post('/api/mood', reqObj).then(function(data) {})
     }
    }
-   return $http(req).then(function(data) {
-    if (data.data.length === 0) {} else {
-     return [data.data[0], image.images.standard_resolution.url];
+
+   app.service('usersService', function($http) {
+    return {
+     getUsers: function() {
+      // console.log('the usersService is being called');
+      return $http.get('/api/users').then(function(response) {
+       // console.log(response.data)
+       return response.data
+
+      })
+     },
+     newUser: function(users) {
+      return $http.post('/api/newpoint', point).then(function(response) {
+       // console.log(response.data);
+       return response.data
+      })
+     }
     }
-   });
-  },
-  getMoodId: function(mood) {
-   console.log(mood);
-   var id = 0;
-   switch (mood) {
-    case 'anger':
-     id = 1;
-     break;
-    case 'contempt':
-     id = 2;
-     break;
-    case 'disgust':
-     id = 3;
-     break;
-    case 'fear':
-     id = 4;
-     break;
-    case 'happiness':
-     id = 5;
-     break;
-    case 'sadness':
-     id = 6;
-     break;
-    case 'surprise':
-     id = 7;
-     break;
-   }
-   return id;
-  },
-  seedUser: function(username, img, mood) {
-   var reqObj = {
-    username: username,
-    img: img,
-    mood: mood
-   };
-   return $http.post('/api/mood', reqObj).then(function(data) {
    })
-  }
- }
-})
