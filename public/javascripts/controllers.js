@@ -21,6 +21,7 @@ app.controller('MoodController', ['$window', '$scope', 'imgService', 'moodServic
       $scope.vm.username = userData.data.username;
       var userID = userData.data.id;
       var userImg = userData.data.profile_picture;
+      $scope.vm.propic = userImg;
       //get user media from Instagram API
       imgService.getMedia($window.localStorage['accessToken'],userID).getInstaData().$promise.then(function(userMedia){
         var images = userMedia.data;

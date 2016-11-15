@@ -94,10 +94,13 @@ app.service('moodService', function($http) {
    return id;
   },
   seedUser: function(username, img, mood) {
-    var reqObj = {username: username, img: img, mood: mood};
-    return $http.post('/api/mood', reqObj).then(function(data){
-      console.log(data);
-    })
+   var reqObj = {
+    username: username,
+    img: img,
+    mood: mood
+   };
+   return $http.post('/api/mood', reqObj).then(function(data) {
+   })
   }
  }
 })

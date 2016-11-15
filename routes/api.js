@@ -4,8 +4,6 @@ const knex = require('../knex');
 
 /* GET home page. */
 router.post('/api/mood', function(req, res, next) {
-  console.log('hey');
-  console.log(req.body);
   knex('users')
     .where('username', req.body.username)
     .then((data) => {
