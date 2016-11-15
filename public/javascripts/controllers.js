@@ -18,10 +18,20 @@ app.controller('MoodController', ['$location', '$window', '$scope', 'imgService'
       var userID = data.data.id;
       imgService.getMedia($window.localStorage['accessToken'],userID).getInstaData().$promise.then(function(data){
         var images = data.data;
-        moodService.getImage(images[1]).then(function(results){
-          $scope.vm.mood = Object.keys(results[0].scores).reduce(function(a, b){ return results[0].scores[a] > results[0].scores[b] ? a : b });
-        })
-        $scope.vm.img = data.data[0];
+        var returnArr = [];
+        for(var i = 0; i < images.length; i++){
+          var image = images[i];
+          moodService.getImage(image).then(function(data){
+            if(data){
+              returnArr = data;
+              $scope.vm.mood = Object.keys(returnArr[0].scores).reduce(function(a, b){ return returnArr[0].scores[a] > returnArr[0].scores[b] ? a : b });
+              $scope.vm.img = returnArr[1];
+            }
+          })
+          if(returnArr.length!==0){
+            break;
+          }
+        }
       })
      })
 }])
