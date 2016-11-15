@@ -42,21 +42,6 @@ app.service('imgService', function($http, $resource) {
 app.service('moodService', function($location, $resource, $http) {
  return {
   getImage: function(image) {
-    // var cogApi = $resource(
-    //  `https://api.projectoxford.ai/emotion/v1.0/recognize`, {
-    //  }, {
-    //   getData: { // call this in the controller
-    //    method: 'POST',
-    //    headers: {'Content-Type': 'application/json',
-    //       'Ocp-Apim-Subscription-Key': 'ccbc67bfc9d14545abd87142a0a4d0cd'},
-    //    isArray: false, // this API call returns an object
-    //    params: {}, // param order here not guaranteed
-    //    data:{
-    //       'url': image.images.standard_resolution.url
-    //      }
-    //   }
-    //  });
-    // return cogApi;
     var req = {
      method: 'POST',
      url: 'https://api.projectoxford.ai/emotion/v1.0/recognize',
@@ -73,12 +58,6 @@ app.service('moodService', function($location, $resource, $http) {
       }else{
         return [data.data[0], image.images.standard_resolution.url];
       }
-      // if (data.data == []) {
-      //   console.log('blah');
-      // }else{
-      //   return image.images.standard_resolution.url;
-      // }
-
     });
   }
  }
