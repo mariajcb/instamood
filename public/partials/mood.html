@@ -52,7 +52,7 @@
             <div class="content">
                 <div class="author">
                     <a href="#">
-                        <img class="avatar" src="assets/img/kelsey.jpg" alt="..." />
+                        <img class="avatar" ng-src="{{vm.propic}}" alt="..." />
                         <h4 class="title">{{vm.username}}<br />
                             <small>your mood is</small>
                           </h2>{{vm.mood}}</h2>
@@ -224,19 +224,6 @@
                                 <div class="author">
                                     <img class="avatar" src="assets/img/Emoji.jpg">
                                     <h4><a class="title" ng-click="vm.mood='happiness'" href="#">HAPPINESS</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end mood -->
-
-                    <div class="col-sm-2">
-                        <div class="card card-user card-plain">
-                            <div class="image image-plain"></div>
-                            <div class="content">
-                                <div class="author">
-                                    <img class="avatar" src="assets/img/Emoji.jpg">
-                                    <h4><a class="title" ng-click="vm.mood='neutral'" href="#">NEUTRAL</a></h4>
                                 </div>
                             </div>
                         </div>
