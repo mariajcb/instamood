@@ -46,7 +46,7 @@ app.controller('MoodController', ['$window', '$scope', 'imgService', 'moodServic
         })
     })
 
-          })
+          }
           if(returnArr.length){
             break;
           }
@@ -64,3 +64,4 @@ app.controller('UsersController', ['$location', '$window', '$scope', 'usersServi
                     console.log(users);
                     $scope.users = response;
                 })
+}])
