@@ -5,6 +5,7 @@ require([
     "esri/graphic",
     "esri/layers/FeatureLayer",
     "esri/map",
+    "esri/dijit/Search",
     "esri/renderers/SimpleRenderer",
     "esri/renderers/TemporalRenderer",
     "esri/renderers/TimeClassBreaksAger",
@@ -12,8 +13,15 @@ require([
     "esri/symbols/SimpleMarkerSymbol",
     "esri/TimeExtent",
     "dojo/domReady!"
-  ], function (Color, Point, webMercatorUtils, Graphic, FeatureLayer, Map, SimpleRenderer, TemporalRenderer,
-    TimeClassBreaksAger, SimpleLineSymbol, SimpleMarkerSymbol, TimeExtent){
+  ], function (Color, Point, webMercatorUtils, Graphic, FeatureLayer, Map, Search, SimpleRenderer, TemporalRenderer,
+    TimeClassBreaksAger, SimpleLineSymbol, SimpleMarkerSymbol, TimeExtent) {
+
+
+    var search = new Search({
+        map: map
+    }, "search");
+    search.startup();
+
 
     var map, featureLayer;
     var OBJECTID_COUNTER = 1000;
@@ -166,5 +174,7 @@ require([
         map.resize();
       }
     }
+
+
 
   });

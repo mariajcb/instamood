@@ -10,7 +10,7 @@ app.config(function($routeProvider, $locationProvider){
   })
   .when('/map', {
     templateUrl: '../partials/map.html',
-    controller: 'MoodController'
+    controller: ''
   })
   .when('/:id', {
     templateUrl: '../partials/login.html',
