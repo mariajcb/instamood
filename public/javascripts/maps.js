@@ -44,7 +44,7 @@ app.controller('UsersController', ['$location', '$window', '$scope', 'usersServi
 
 
             map = new Map("map", {
-                basemap: "streets"
+                basemap: "dark-gray"
             });
             map.on("load", mapLoadedHandler);
 
