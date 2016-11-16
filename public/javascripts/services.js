@@ -122,3 +122,12 @@ app.service('usersService', function($http) {
         }
     }
 })
+
+//personService posts the Instagram data to the IMB Watson API
+app.factory(`personService`, [`$http`, function($http) {
+    return {
+        person: function(textObj) {
+            return $http.post(`/personality`, textObj)
+        }
+    }
+}])
