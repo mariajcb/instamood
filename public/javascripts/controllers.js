@@ -49,11 +49,11 @@ app.controller('MoodController', ['$window', '$scope', 'imgService', 'moodServic
 }])
 
 //UsrsController handles getting lat and long from our moods database
-app.controller('UsersController', ['$location', '$window', '$scope', 'usersService', function($location, $window, $scope, usersService) {
-    $scope.vm = {};
-    //get users vfrom database
-    usersService.getUsers().then(function(response) {
-        console.log(response);
-        $scope.vm.users = response;
-    })
-}])
+// app.controller('UsersController', ['$location', '$window', '$scope', 'usersService', function($location, $window, $scope, usersService) {
+//     $scope.vm = {};
+//     //get users vfrom database
+//     usersService.getUsers().then(function(response) {
+//         console.log(response);
+//         $scope.vm.users = response;
+//     })
+// }])
