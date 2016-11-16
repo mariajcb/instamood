@@ -1,11 +1,14 @@
 var express = require('express');
 var router = express.Router();
 const knex = require('../knex');
-router.get('/users', function(req, res, next) {
-  knex('users')
+router.get('/api/users', function(req, res, next) {
+  knex('users').innerJoin('moods', 'moods.id', 'users.mood_id')
   .then(users => {
+    console.log(users);
+
     res.send(users)
   })
+});
 
 router.post('/api/mood', function(req, res, next) {
   knex('users')
