@@ -69,7 +69,7 @@ app.service('moodService', function($http) {
  }
 })
 
-//personService queries IMB Watson API
+//personService posts the Instagram data to the IMB Watson API
 app.factory(`personService`, [`$http`, function($http) {
     return {
         person: function(textObj) {

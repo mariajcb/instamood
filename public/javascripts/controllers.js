@@ -43,9 +43,9 @@ app.controller('MoodController', ['$window', '$scope', 'imgService', 'moodServic
       })
      })
 }])
+
 //
 app.controller('PersonController', ['$window', '$scope', 'imgService', 'personService', function($window, $scope, imgService, personService){
-console.log(`PERSON CONTROLLER IS FIRING`);
   $scope.vm = {};
   //get user data from Instagram API
   imgService.getUser($window.localStorage['accessToken']).getInstaData().$promise.then(function(userData) {
@@ -59,10 +59,11 @@ console.log(`PERSON CONTROLLER IS FIRING`);
           var caption = captions[i].caption.text;
           text += caption;
         }
+        //get IBM Watson info
         var textObj = {text: text}
         personService.person(textObj)
         .then(function(response){
-          console.log(`RESPONSE FROM THE CONTROLLER`, response);
+          console.log(`RESPONSE FROM THE CONTROLLER`, response.data[0]);
         })
       })
      })
