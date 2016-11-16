@@ -49,7 +49,7 @@ app.controller('MoodController', ['$window', '$scope', 'imgService', 'moodServic
 }])
 
 //
-UsrsController handles getting lat and long from our moods database
+// UsrsController handles getting lat and long from our moods database
 app.controller('UsersController', ['$location', '$window', '$scope', 'usersService', function($location, $window, $scope, usersService) {
     $scope.vm = {};
     //get users vfrom database
