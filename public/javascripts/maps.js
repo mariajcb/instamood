@@ -81,10 +81,6 @@ app.controller('UsersController', ['$location', '$window', '$scope', 'usersServi
      }]
     };
     var dbCoords = mapArr;
-    // console.log(dbCoords);
-    // var dbCoords = [
-    //   {lat:-105.291135,long:40.010687},{lat:-105.290878,long:40.012183},{lat:-105.278003,long:40.019463},{lat:-105.289375,long:40.019462}
-    // ]
     dbCoords.forEach(coord => {
      var coords = new Point(coord.lat, coord.long)
      var symbol = new SimpleMarkerSymbol().setColor(new Color('blue'));
@@ -155,57 +151,34 @@ app.controller('UsersController', ['$location', '$window', '$scope', 'usersServi
    }
 
    function zoomToLocation(location) {
-    // var pt = webMercatorUtils.geographicToWebMercator(new Point(location.coords.longitude,
-    //  location.coords.latitude));
-    // map.centerAndZoom(pt, 16);
     var pt = new Point(location.coords.longitude, location.coords.latitude);
-          addGraphic(pt);
-          map.centerAndZoom(pt, 16);
+    addGraphic(pt);
+    map.centerAndZoom(pt, 16);
    }
-   function addGraphic(pt){
-          var symbol = new SimpleMarkerSymbol(
-            SimpleMarkerSymbol.STYLE_CIRCLE,
-            12,
-            new SimpleLineSymbol(
-              SimpleLineSymbol.STYLE_SOLID,
-              new Color([210, 105, 30, 0.5]),
-              8
-            ),
-            new Color([210, 105, 30, 0.9])
-          );
-          graphic = new Graphic(pt, symbol);
-          map.graphics.add(graphic);
-        }
+
+   function addGraphic(pt) {
+    var symbol = new SimpleMarkerSymbol(
+     SimpleMarkerSymbol.STYLE_CIRCLE,
+     12,
+     new SimpleLineSymbol(
+      SimpleLineSymbol.STYLE_SOLID,
+      new Color([210, 105, 30, 0.5]),
+      8
+     ),
+     new Color([210, 105, 30, 0.9])
+    );
+    graphic = new Graphic(pt, symbol);
+    map.graphics.add(graphic);
+   }
 
    function showLocation(location) {
-     var pt = new Point(location.coords.longitude, location.coords.latitude);
-         if ( !graphic ) {
-           addGraphic(pt);
-         } else { // move the graphic if it already exists
-           graphic.setGeometry(pt);
-         }
-         map.centerAt(pt);
-    // if (location.coords.accuracy <= 500) {
-    //  var now = new Date();
-    //  var attributes = {};
-    //  attributes.OBJECTID = OBJECTID_COUNTER;
-    //  attributes.DATETIME = now.getTime();
-    //  attributes.TrackID = TRACKID_COUNTER;
-    //
-    //  OBJECTID_COUNTER++;
-    //  TRACKID_COUNTER++;
-    //
-    //  var pt = webMercatorUtils.geographicToWebMercator(new Point(location.coords.longitude,
-    //   location.coords.latitude));
-    //  var graphic = new Graphic(new Point(pt, map.spatialReference), null, attributes);
-    //
-    //  featureLayer.applyEdits([graphic], null, null, function(adds) {
-    //   map.setTimeExtent(new TimeExtent(null, new Date()));
-    //   map.centerAt(graphic.geometry);
-    //  });
-    // } else {
-    //  console.warn("Point not added due to low accuracy: " + location.coords.accuracy);
-    // }
+    var pt = new Point(location.coords.longitude, location.coords.latitude);
+    if (!graphic) {
+     addGraphic(pt);
+    } else { // move the graphic if it already exists
+     graphic.setGeometry(pt);
+    }
+    map.centerAt(pt);
    }
 
    function orientationChanged() {
