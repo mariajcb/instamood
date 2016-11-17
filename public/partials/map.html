@@ -1,31 +1,49 @@
-<!-- <div class="row" id="blog-cards">
-    <div class="col-md-4">
-        <div ng-repeat="user in vm.users" class="card">
-            <div class="image">
-                <img style="width:100%" ng-src="{{vm.img}}" />
-                <div class="filter">
-                    <button type="button" class="btn btn-neutral btn-simple">
-                        <i class="fa fa-bookmark-o"></i></h4>{{user.mood}}</h4>
-                    </button>
-                </div>
-            </div>
-            <div class="content">
-                    <h4 class="title">{{user.username}}</h4>
-                    <h4 class="title">{{user.user_image}}</h4>
-                    <h4 class="title">{{user.mood_id}}</h4>
-                    <h4 class="title">{{user.Lat}}</h4>
-                    <h4 class="title">{{user.Long}}</h4>
-                <div class="footer">
-                    <div class="author">
-                        <a class="card-link" href="#">
-                            <i class="fa fa-female"></i>{{vm.username}}
-                        </a>
-                    </div>
-                </div>
-            </div>
+<nav class="navbar navbar-ct-blue navbar-transparent navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button id="menu-toggle" type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar bar1"></span>
+                <span class="icon-bar bar2"></span>
+                <span class="icon-bar bar3"></span>
+            </button>
+            <a class="navbar-brand" href="#">insta[MOOD]</a>
         </div>
-      </div>
- -->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active">
+                    <li><a href="/mood">Mood</a></li>
+                    <li><a href="/map">Map</a></li>
+                    <li><a href="/personality">Personality</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Settings<b class="caret"></b></a>
+                        <ul class="dropdown-menu dropdown-with-icons">
+                            <li>
+                                <a href="#"><i class="pe-7s-user"></i> Account</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="pe-7s-mail"></i> Messages</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-danger"><i class="pe-7s-close-circle"></i> Log out</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a>{{vm.username}}</a></li>
+                    </ul>
+            </ul>
+
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
 
 <div id="map"></div>
 
