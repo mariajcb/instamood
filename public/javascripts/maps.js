@@ -7,7 +7,10 @@ app.controller('UsersController', ['$location', '$window', '$scope', 'usersServi
         for (var i = 0; i < response.length; i++) {
             var obj = {
                 lat: response[i].Long,
-                long: response[i].Lat
+                long: response[i].Lat,
+                username: response[i].username,
+                user_img: response[i].user_img,
+                mood: response[i].mood
             };
             mapArr.push(obj);
         }
@@ -18,6 +21,7 @@ app.controller('UsersController', ['$location', '$window', '$scope', 'usersServi
             "esri/graphic",
             "esri/layers/FeatureLayer",
             "esri/map",
+            "esri/InfoTemplate",
             "esri/renderers/SimpleRenderer",
             "esri/renderers/TemporalRenderer",
             "esri/renderers/TimeClassBreaksAger",
@@ -25,7 +29,7 @@ app.controller('UsersController', ['$location', '$window', '$scope', 'usersServi
             "esri/symbols/SimpleMarkerSymbol",
             "esri/TimeExtent",
             "dojo/domReady!"
-        ], function(Color, Point, webMercatorUtils, Graphic, FeatureLayer, Map, SimpleRenderer, TemporalRenderer,
+        ], function(Color, Point, webMercatorUtils, Graphic, FeatureLayer, Map,InfoTemplate,SimpleRenderer, TemporalRenderer,
             TimeClassBreaksAger, SimpleLineSymbol, SimpleMarkerSymbol, TimeExtent) {
 
 
@@ -91,7 +95,21 @@ app.controller('UsersController', ['$location', '$window', '$scope', 'usersServi
                 dbCoords.forEach(coord => {
                     var coords = new Point(coord.lat, coord.long)
                     var symbol = new SimpleMarkerSymbol().setColor(new Color('blue'));
-                    var graphic = new Graphic(coords, symbol)
+                    var image = coord.user_img
+                    var imgArr = image.split('')
+                    imgArr[4] =='s'?imgArr.splice(4,1):null
+
+                    var newUrl = imgArr.join('')
+                    console.log('image',newUrl);
+                    var attrs = {
+                      lat:coord.lat,
+                      long:coord.long,
+                      username:coord.username,
+                      img:newUrl,
+                      mood: coord.mood
+                    }
+                    var infoTemplate = new InfoTemplate("moody person","lat:${lat} </br> long:${long} </br> username:${username} </br> <img style='width:250px' src='${img}' alt='img'/></br> mood:${mood}")
+                    var graphic = new Graphic(coords, symbol,attrs,infoTemplate)
                     map.graphics.add(graphic)
                 })
 
@@ -101,16 +119,16 @@ app.controller('UsersController', ['$location', '$window', '$scope', 'usersServi
 
                 map.on("click", addPoint);
 
-                function addPoint(evt) {
-                    var latitude = evt.mapPoint.getLatitude();
-                    var longitude = evt.mapPoint.getLongitude();
-                    map.infoWindow.setTitle("Coordinates");
-                    map.infoWindow.setContent(
-                        "lat/lon : " + latitude.toFixed(2) + ", " + longitude.toFixed(2) +
-                        "<br>Username: " + "<br>Mood: "
-                    );
-                    map.infoWindow.show(evt.mapPoint, map.getInfoWindowAnchor(evt.screenPoint));
-                }
+                // function addPoint(evt) {
+                //     var latitude = evt.mapPoint.getLatitude();
+                //     var longitude = evt.mapPoint.getLongitude();
+                //     map.infoWindow.setTitle("Coordinates");
+                //     map.infoWindow.setContent(
+                //         "lat/lon : " + latitude.toFixed(2) + ", " + longitude.toFixed(2) +
+                //         "<br>Username: " + "<br>Mood: "
+                //     );
+                //     map.infoWindow.show(evt.mapPoint, map.getInfoWindowAnchor(evt.screenPoint));
+                // }
 
                 var featureCollection = {
                     layerDefinition: layerDefinition,

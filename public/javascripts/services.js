@@ -109,7 +109,7 @@ app.service('usersService', function($http) {
         getUsers: function() {
             // console.log('the usersService is being called');
             return $http.get('/api/users').then(function(response) {
-                // console.log(response.data)
+                console.log(response.data)
                 return response.data
             })
         },
