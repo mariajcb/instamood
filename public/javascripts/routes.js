@@ -13,8 +13,12 @@ app.config(function($routeProvider, $locationProvider){
     controller: 'UsersController'
   })
   .when('/personality', {
-    templateUrl: '../partials/person.html',
+    templateUrl: '../partials/personality.html',
     controller: 'PersonController'
+  })
+  .when('/chat', {
+    templateUrl: '../partials/chat.html',
+    controller: 'SocketController'
   })
   .when('/:id', {
     templateUrl: '../partials/login.html',

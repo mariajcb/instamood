@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node server.js",
     "knex": "knex",
-    "heroku-postbuild": "knex migrate:rollback; knex migrate:latest",
+    "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run",
     "nodemon": "node server.js"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
     "morgan": "~1.7.0",
     "pg": "^6.1.0",
     "serve-favicon": "~2.3.0",
+    "socket.io": "^1.5.1",
     "watson-developer-cloud": "^2.9.0"
   },
   "engines": {
