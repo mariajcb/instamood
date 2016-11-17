@@ -36,7 +36,7 @@ app.controller('PersonController', ['$window', '$scope', 'imgService', 'personSe
                         },
                         "scale-x": {
                             "label": { /* Scale Title */
-                                "text": "Here is a category scale",
+                                "text": "Big Five Personality Traits",
                             },
                             "labels": names /* Scale Labels */
                         },
