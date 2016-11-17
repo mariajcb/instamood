@@ -13,7 +13,7 @@ app.config(function($routeProvider, $locationProvider){
     controller: 'UsersController'
   })
   .when('/personality', {
-    templateUrl: '../partials/person.html',
+    templateUrl: '../partials/personality.html',
     controller: 'PersonController'
   })
   .when('/:id', {
