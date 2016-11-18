@@ -37,12 +37,6 @@ exports.seed = function(knex) {
         mood_id: 6,
         Lat: 40.019887,
         Long:-105.274152
-      },{
-        username: 'cherrybomb',
-        user_img: 'http://i63.tinypic.com/15ovsyv.jpg',
-        mood_id: 7,
-        Lat: 40.018802,
-        Long:-105.297284
       }]);
     });
 };
