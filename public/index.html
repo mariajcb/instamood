@@ -1,71 +1,60 @@
 <!DOCTYPE html>
 <html ng-app="instamood">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <title>insta[mood]</title>
 
-      <!-- styles -->
-      <script src="https://code.jquery.com/jquery-3.1.1.js" charset="utf-8"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>insta[mood]</title>
 
-      <!--socket scripts -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.5.1/socket.io.js"></script>
-      <link rel="stylesheet" href="stylesheets/maps.css">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.min.css"/>
+  <!-- styles -->
+  <script src="https://code.jquery.com/jquery-3.1.1.js" charset="utf-8"></script>
 
-      <link href="bootstrap3/css/bootstrap.min.css" rel="stylesheet" />
-      <link href="assets/css/instamood.css" rel="stylesheet"/>
-      <link href="assets/css/core.css" rel="stylesheet" />
+  <!--socket scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.5.1/socket.io.js"></script>
+  <link rel="stylesheet" href="stylesheets/maps.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.min.css" />
 
-      <!--     Fonts and icons     -->
-      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-      <link href='https://fonts.googleapis.com/css?family=Grand+Hotel|Open+Sans:400,300' rel='stylesheet' type='text/css'>
-      <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+  <link href="bootstrap3/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/css/instamood.css" rel="stylesheet" />
+  <link href="assets/css/core.css" rel="stylesheet" />
 
-      <!-- load angular-esri-map -->
-      <script src="https://js.arcgis.com/3.18compact/"></script>
-      <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">
+  <!--     Fonts and icons     -->
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Grand+Hotel|Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
-      <!-- angular style library -->
-      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-      <!-- angular scripts -->
-      <script src="https://code.angularjs.org/1.5.8/angular.js" charset="utf-8"></script>
-      <script src="https://code.angularjs.org/1.5.8/angular-route.js" charset="utf-8"></script>
-      <script src="https://code.angularjs.org/1.5.8/angular-cookies.js" charset="utf-8"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.5.8/angular-resource.min.js"></script>
-      <script src="http://cdn.zingchart.com/zingchart.min.js"></script>
-      <script src="http://cdn.zingchart.com/angular/zingchart-angularjs.js"></script>
+  <!-- load angular-esri-map -->
+  <script src="https://js.arcgis.com/3.18compact/"></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">
 
-      <!-- local scripts -->
-      <script src="javascripts/app.js"></script>
-      <script src="javascripts/routes.js"></script>
-      <script src="javascripts/controllers.js"></script>
-      <script src="javascripts/services.js"></script>
-      <script src="javascripts/maps.js"></script>
-      <script src="javascripts/personality.js"></script>
+  <!-- angular style library -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <!-- angular scripts -->
+  <script src="https://code.angularjs.org/1.5.8/angular.js" charset="utf-8"></script>
+  <script src="https://code.angularjs.org/1.5.8/angular-route.js" charset="utf-8"></script>
+  <script src="https://code.angularjs.org/1.5.8/angular-cookies.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.5.8/angular-resource.min.js"></script>
+  <script src="http://cdn.zingchart.com/zingchart.min.js"></script>
+  <script src="http://cdn.zingchart.com/angular/zingchart-angularjs.js"></script>
 
-    <base href="/">
-  </head>
-  <body>
+  <!-- local scripts -->
+  <script src="javascripts/app.js"></script>
+  <script src="javascripts/routes.js"></script>
+  <script src="javascripts/controllers.js"></script>
+  <script src="javascripts/services.js"></script>
+  <script src="javascripts/maps.js"></script>
+  <script src="javascripts/personality.js"></script>
 
-    <ng-view></ng-view>
+  <base href="/">
+</head>
 
-    <footer class="footer footer-transparent" style="background-image: url('assets/img/thumb.jpg')">
+<body>
+  <ng-view></ng-view>
+</body>
 
-
-            <div class="container">
-
-                <div class="copyright">
-                    &copy; 2016 Gschool32 LKM, made with love
-                </div>
-            </div>
-        </footer>
-
-  </body>
-
-  <!--  jQuery and Bootstrap core files    -->
-  <script src="assets/js/jquery.js" type="text/javascript"></script>
+<!--  jQuery and Bootstrap core files    -->
+<script src="assets/js/jquery.js" type="text/javascript"></script>
 <script src="assets/js/jquery-ui.custom.min.js" type="text/javascript"></script>
 <script src="bootstrap3/js/bootstrap.min.js" type="text/javascript"></script>
 
@@ -80,14 +69,15 @@
 <script src="assets/js/retina.min.js"></script>
 
 
-  <script src="assets/js/jquery.tagsinput.js"></script>
+<script src="assets/js/jquery.tagsinput.js"></script>
 
-  <!--  Core javascript 	 -->
+<!--  Core javascript 	 -->
 <script src="assets/js/core.js"></script>
 
-  <script type="text/javascript">
-      $().ready(function(){
-          $(window).on('scroll', gsdk.checkScrollForTransparentNavbar);
-      });
-  </script>
+<script type="text/javascript">
+  $().ready(function() {
+    $(window).on('scroll', gsdk.checkScrollForTransparentNavbar);
+  });
+</script>
+
 </html>
