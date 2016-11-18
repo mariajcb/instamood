@@ -49,18 +49,19 @@ app.controller('MoodController', ['$window', '$scope', 'imgService', 'moodServic
 
 }])
 app.controller('SocketController', ['$scope', '$window', 'socket', function($scope, $window, socket){
-    socket.on('init', function () {
+    socket.on('init', function (data) {
       $scope.name = $window.localStorage['username'];
+      $scope.users = data.users;
     });
 
     socket.on('send:message', function (message) {
       $scope.messages.push(message);
     });
 
-    socket.on('user:join', function () {
+    socket.on('user:join', function (data) {
       $scope.messages.push({
         user: 'chatroom',
-        text: 'User ' + $window.localStorage['username'] + ' has joined.'
+        text: 'User ' + data.name + ' has joined.'
       });
     });
 
