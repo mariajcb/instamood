@@ -38,13 +38,16 @@ app.controller('PersonController', ['$window', '$scope', 'imgService', 'personSe
                             "label": { /* Scale Title */
                                 "text": "Big Five Personality Traits",
                             },
-                            "labels": names /* Scale Labels */
+                            "labels": ["O", "C", "E", "A", "N"] /* Scale Labels */
                         },
                         "scale-y": {
                             "label": { /* Scale Title */
                                 "text": "Percentile",
                             },
                             "labels": ['0', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'] /* Scale Labels */
+                        },
+                        "plot": {
+                          "styles": ["#5cb85c","#337ab7","#d9534f","#f0ad4e","#5bc0de"]
                         },
                         "series": [
                           {
