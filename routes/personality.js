@@ -29,7 +29,6 @@ router.post('/', function(req, res, next) {
             console.log('error:', error);
         else
             personalityTraits.push(response.personality)
-        console.log(personalityTraits);
         res.json(personalityTraits)
     })
 })
