@@ -3,6 +3,7 @@ app.controller('PersonController', ['$window', '$scope', 'imgService', 'personSe
     //get user data from Instagram API
     imgService.getUser($window.localStorage['accessToken']).getInstaData().$promise.then(function(userData) {
         $scope.vm.username = userData.data.username;
+        $scope.vm.propic = userData.data.profile_picture;
         var userID = userData.data.id;
         //get user media from Instagram API
         imgService.getMedia($window.localStorage['accessToken'], userID).getInstaData().$promise.then(function(userMedia) {

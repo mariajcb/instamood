@@ -31,7 +31,7 @@ app.service('imgService', function($resource) {
             //getMedia gets the user's media
             getMedia: function(token, userID) {
                 var instaApi = $resource(
-                    `https://api.instagram.com/v1/users/${userID}/media/recent/?access_token=${token}&count=10`, {
+                    `https://api.instagram.com/v1/users/${userID}/media/recent/?access_token=${token}&count=15`, {
                         callback: 'JSON_CALLBACK'
                     }, {
                         getInstaData: {
@@ -64,6 +64,7 @@ app.service('moodService', function($http) {
                     return [data.data[0], image.images.standard_resolution.url];
                 }
             });
+
         },
         getMoodId: function(mood) {
             console.log(mood);
