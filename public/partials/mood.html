@@ -8,7 +8,7 @@
                 <span class="icon-bar bar2"></span>
                 <span class="icon-bar bar3"></span>
             </button>
-            <a class="navbar-brand" href="#">insta[MOOD]</a>
+            <a class="navbar-brand" href="/login">insta[MOOD]</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,24 +19,20 @@
                     <li><a href="/map">Map</a></li>
                     <li><a href="/personality">Personality</a></li>
 
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    Settings<b class="caret"></b></a>
+                    {{vm.username}}<b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-with-icons">
                             <li>
-                                <a href="#"><i class="pe-7s-user"></i> Account</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="pe-7s-mail"></i> Messages</a>
+                                <a href="#"><i class="pe-7s-mail"></i> Chat</a>
                             </li>
                             <li>
                                 <a href="#" class="text-danger"><i class="pe-7s-close-circle"></i> Log out</a>
                             </li>
                         </ul>
                     </li>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a>{{vm.username}}</a></li>
-                    </ul>
+
             </ul>
 
         </div>
@@ -49,8 +45,13 @@
 <div class="row" id="profile-cards">
     <div class="col-md-12">
         <div class="card card-user">
-            <div class="image">
-                <img src="assets/img/thumb.jpg" alt="..." />
+            <div class="image" style="height:20%">
+                <img ng-src="{{vm.img}}" />
+                <div class="filter">
+                    <button type="button" class="btn btn-neutral btn-simple">
+                        <i class="fa fa-bookmark-o"></i></h4>{{vm.mood}}</h4>
+                    </button>
+                </div>
             </div>
             <div class="content">
                 <div class="author">
@@ -63,117 +64,24 @@
                     </a>
                 </div>
             </div>
-            <hr>
         </div>
     </div>
 
 </div>
 <!-- end profile picture -->
 
-
-<div class="section section-gray">
-    <div class="container">
-        <h6>Most Recent:</h6>
-        <div class="row" id="blog-cards">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="image">
-                        <img style="width:100%" ng-src="{{vm.img}}" />
-                        <div class="filter">
-                            <button type="button" class="btn btn-neutral btn-simple">
-                                    <i class="fa fa-bookmark-o"></i></h4>{{vm.mood}}</h4>
-                                </button>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <a class="card-link" href="#">
-                            <h4 class="title">{{vm.caption}}</h4>
-                        </a>
-                        <div class="footer">
-                            <div class="author">
-                                <a class="card-link" href="#">
-                                    <i class="fa fa-female"></i>{{vm.username}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- end card -->
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="image">
-                        <img style="width:100%" ng-src="{{vm.img}}" />
-                        <div class="filter">
-                            <button type="button" class="btn btn-neutral btn-simple">
-                                    <i class="fa fa-bookmark-o"></i></h4>{{vm.mood}}</h4>
-                                </button>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <a class="card-link" href="#">
-                            <h4 class="title">{{vm.caption}}</h4>
-                        </a>
-                        <div class="footer">
-                            <div class="author">
-                                <a class="card-link" href="#">
-                                    <i class="fa fa-female"></i>{{vm.username}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end card -->
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="image">
-                        <img style="width:100%" ng-src="{{vm.img}}" />
-                        <div class="filter">
-                            <button type="button" class="btn btn-neutral btn-simple">
-                                    <i class="fa fa-bookmark-o"></i></h4>{{vm.mood}}</h4>
-                                </button>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <a class="card-link" href="#">
-                            <h4 class="title">{{vm.caption}}</h4>
-                        </a>
-                        <div class="footer">
-                            <div class="author">
-                                <a class="card-link" href="#">
-                                    <i class="fa fa-female"></i>{{vm.username}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end card -->
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12">
-        <img style="width:100%" ng-src="{{vm.img}}" />
-    </div>
-</div>
-
 <div class="row text-center">
     <div class="col-sm-12">
         <h4 class="title">Or choose from these moods: </h4>
     </div>
 
-
     <div class="col-sm-2">
         <div class="card card-user card-plain">
             <div class="image image-plain"></div>
             <div class="content">
                 <div class="author">
-                    <img class="avatar" src="assets/img/Emoji.jpg">
-                    <h4><a class="title" ng-click="vm.mood='anger'" href="#">ANGER</a></h4>
+                    <img class="avatar" src="">
+                    <p><a class="title" ng-click="vm.mood='anger'" href="#">ANGER</a></p>
                 </div>
             </div>
         </div>
@@ -185,8 +93,8 @@
             <div class="image image-plain"></div>
             <div class="content">
                 <div class="author">
-                    <img class="avatar" src="assets/img/Emoji.jpg">
-                    <h4><a class="title" ng-click="vm.mood='contempt'" href="#">CONTEMPT</a></h4>
+                    <img class="avatar" src="">
+                    <p><a class="title" ng-click="vm.mood='contempt'" href="#">CONTEMPT</a></p>
                 </div>
             </div>
         </div>
@@ -199,8 +107,8 @@
             <div class="image image-plain"></div>
             <div class="content">
                 <div class="author">
-                    <img class="avatar" src="assets/img/Emoji.jpg">
-                    <h4><a class="title" ng-click="vm.mood='disgust'" href="#">DISGUST</a></h4>
+                    <img class="avatar" src="">
+                    <p><a class="title" ng-click="vm.mood='disgust'" href="#">DISGUST</a></p>
                 </div>
             </div>
         </div>
@@ -212,8 +120,8 @@
             <div class="image image-plain"></div>
             <div class="content">
                 <div class="author">
-                    <img class="avatar" src="assets/img/Emoji.jpg">
-                    <h4><a class="title" ng-click="vm.mood='fear'" href="#">FEAR</a></h4>
+                    <img class="avatar" src="">
+                    <p><a class="title" ng-click="vm.mood='fear'" href="#">FEAR</a></p>
                 </div>
             </div>
         </div>
@@ -225,8 +133,8 @@
             <div class="image image-plain"></div>
             <div class="content">
                 <div class="author">
-                    <img class="avatar" src="assets/img/Emoji.jpg">
-                    <h4><a class="title" ng-click="vm.mood='happiness'" href="#">HAPPINESS</a></h4>
+                    <img class="avatar" src="">
+                    <p><a class="title" ng-click="vm.mood='happiness'" href="#">HAPPINESS</a></p>
                 </div>
             </div>
         </div>
@@ -238,8 +146,8 @@
             <div class="image image-plain"></div>
             <div class="content">
                 <div class="author">
-                    <img class="avatar" src="assets/img/Emoji.jpg">
-                    <h4><a class="title" ng-click="vm.mood='sadness'" href="#">SADNESS</a></h4>
+                    <img class="avatar" src="">
+                    <p><a class="title" ng-click="vm.mood='sadness'" href="#">SADNESS</a></p>
                 </div>
             </div>
         </div>
@@ -251,10 +159,38 @@
             <div class="image image-plain"></div>
             <div class="content">
                 <div class="author">
-                    <img class="avatar" src="assets/img/Emoji.jpg">
-                    <h4><a class="title" ng-click="vm.mood='surprise'" href="#">SURPRISE</a></h4>
+                    <img class="avatar" src="">
+                    <p><a class="title" ng-click="vm.mood='surprise'" href="#">SURPRISE</a></p>
                 </div>
             </div>
         </div>
     </div>
     <!-- end mood -->
+
+</div>
+</div>
+
+
+
+
+<div class="row tim-row" id="display-buttons" data-class="btn-info">
+    <div class="col-md-4">
+        <button href="/mood" class="btn btn-block btn-lg btn-info">Mood</button>
+    </div>
+    <div class="col-md-4">
+        <button href="/map" class="btn btn-block btn-lg btn-info btn-info">Map</button>
+    </div>
+    <div class="col-md-4">
+        <button href="/personality" class="btn btn-block btn-lg btn-info btn-info">Personality</button>
+    </div>
+
+
+</div>
+<!-- end row -->
+
+</div>
+<!-- /.container-fluid -->
+</nav>
+</div>
+
+</div>

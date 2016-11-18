@@ -47,7 +47,7 @@ app.controller('MoodController', ['$window', '$scope', 'imgService', 'moodServic
 
 
 }])
-app.controller('SocketController', ['$scope', 'socket', function($scope, socket){
+app.controller('SocketController', ['$scope', '$window', 'socket', function($scope, $window, socket){
   $scope.test = "scope test"
 
   // function AppCtrl($scope, socket) {
@@ -68,13 +68,13 @@ app.controller('SocketController', ['$scope', 'socket', function($scope, socket)
     //   changeName(data.oldName, data.newName);
     // });
 
-    // socket.on('user:join', function (data) {
-    //   $scope.messages.push({
-    //     user: 'chatroom',
-    //     text: 'User ' + data.name + ' has joined.'
-    //   });
-    //   $scope.users.push(data.name);
-    // });
+    socket.on('user:join', function (data) {
+      $scope.messages.push({
+        user: 'chatroom',
+        text: 'User ' + data.name + ' has joined.'
+      });
+      $scope.users.push(data.name);
+    });
 
     // add a message to the conversation when a user disconnects or leaves the room
     // socket.on('user:left', function (data) {
