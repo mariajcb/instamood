@@ -108,7 +108,7 @@ app.controller('UsersController', ['$location', '$window', '$scope', 'usersServi
                       img:newUrl,
                       mood: coord.mood
                     }
-                    var infoTemplate = new InfoTemplate("moody person","lat:${lat} </br> long:${long} </br> username:${username} </br> <img style='width:250px' src='${img}' alt='img'/></br> mood:${mood}")
+                    var infoTemplate = new InfoTemplate("moody person"," username:${username} </br> <img style='width:250px' src='${img}' alt='img'/></br> mood:${mood}")
                     var graphic = new Graphic(coords, symbol,attrs,infoTemplate)
                     map.graphics.add(graphic)
                 })
