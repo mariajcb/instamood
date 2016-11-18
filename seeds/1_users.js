@@ -2,8 +2,8 @@ exports.seed = function(knex) {
   return knex('users').del()
     .then(() => {
       return knex('users').insert([{
-        username: 'ali',
-        user_img: 'https://picturetheday.shootproof.com/gallery/3041465/photo/383127853',
+        username: 'mallowcat',
+        user_img: 'http://4.bp.blogspot.com/_gTJMEP-c2fo/SNa52mYRaFI/AAAAAAAAFuA/2sDSwwMiNyw/s640/cat2.jpg',
         mood_id: 1,
         Lat: 40.017356,
         Long: -105.279302
