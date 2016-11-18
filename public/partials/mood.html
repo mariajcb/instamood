@@ -1,31 +1,5 @@
-<div class="row">
-    <div class="col-md-4">
-        <div class="card card-background">
-            <div class="image">
-                <img src="assets/img/thumb.jpg" alt="..." />
-                <div class="filter"></div>
-            </div>
-             <div class="content">
-                <p class="category">instagram post</p>
-                <a href="#">
-                    <h4 class="title">This is a title</h4>
-                </a>
-            </div>
-            <div class="footer">
-               <div class="author">
-                    <a href="#">
-                       <img src="assets/img/kelsey.jpg" alt="..." class="avatar">
-                       <span> this is a name </span>
-                    </a>
-                </div>
-               <div class="stats pull-right">
-                    <i class="fa fa-clock-o"></i> timestamp
-               </div>
-            </div>
-        </div> <!-- end card -->
-    </div>
-</div>
-<!-- <div class="row" id="profile-cards">
+<link rel="stylesheet" href="../stylesheets/mood.css" media="screen" title="no title">
+<div class="row" id="profile-cards">
     <div class="col-md-12">
         <div class="card card-user">
             <div class="image" style="height:20%">
@@ -40,118 +14,51 @@
                 <div class="author">
                     <a href="#">
                         <img class="avatar" ng-src="{{vm.propic}}" alt="..." />
-                        <h4 class="title">{{vm.username}}<br />
-                            <small>your mood is</small>
-                          </h2>{{vm.mood}}</h2>
-                        </h4>
+                        <h4 class="title"><small>{{vm.username}}</small><br>is feeling...<p class="mood">{{vm.mood}}</p></h4>
                     </a>
                 </div>
             </div>
         </div>
     </div>
-
-</div> -->
+</div>
 <!-- end profile picture -->
 
-<div class="row text-center">
-    <div class="col-sm-12">
-        <h4 class="title">Or choose from these moods: </h4>
+<div class="container text-center">
+    <div class="col-xs-12">
+        <h5 class="title">Feeling different? Choose your mood: </h5><br>
     </div>
-
-    <div class="col-sm-2">
-        <div class="card card-user card-plain">
-            <div class="image image-plain"></div>
-            <div class="content">
-                <div class="author">
-                    <img class="avatar" src="">
-                    <p><a class="title" ng-click="vm.mood='anger'" href="#">ANGER</a></p>
-                </div>
-            </div>
-        </div>
+    <div class="col-xs-4 text-center">
+      <button ng-click="vm.mood='sadness'" class="btn btn-block btn-round btn-fill btn-primary">
+        Sadness
+      </button>
     </div>
-    <!-- end mood -->
-
-    <div class="col-sm-2">
-        <div class="card card-user card-plain">
-            <div class="image image-plain"></div>
-            <div class="content">
-                <div class="author">
-                    <img class="avatar" src="">
-                    <p><a class="title" ng-click="vm.mood='contempt'" href="#">CONTEMPT</a></p>
-                </div>
-            </div>
-        </div>
+    <div class="col-xs-4 text-center">
+      <button ng-click="vm.mood='happiness'" class="btn btn-block btn-round btn-fill btn-warning">
+        Happy
+      </button>
     </div>
-    <!-- end mood -->
-
-
-    <div class="col-sm-2">
-        <div class="card card-user card-plain">
-            <div class="image image-plain"></div>
-            <div class="content">
-                <div class="author">
-                    <img class="avatar" src="">
-                    <p><a class="title" ng-click="vm.mood='disgust'" href="#">DISGUST</a></p>
-                </div>
-            </div>
-        </div>
+    <div class="col-xs-4 text-center">
+      <button ng-click="vm.mood='surprise'" class="btn btn-block btn-round btn-fill btn-dribble">
+        Surprise
+      </button>
     </div>
-    <!-- end mood -->
-
-    <div class="col-sm-2">
-        <div class="card card-user card-plain">
-            <div class="image image-plain"></div>
-            <div class="content">
-                <div class="author">
-                    <img class="avatar" src="">
-                    <p><a class="title" ng-click="vm.mood='fear'" href="#">FEAR</a></p>
-                </div>
-            </div>
-        </div>
+    <div class="col-xs-4 text-center">
+      <button ng-click="vm.mood='disgust'" class="btn btn-block btn-round btn-fill btn-success">
+        Disgust
+      </button>
     </div>
-    <!-- end mood -->
-
-    <div class="col-sm-2">
-        <div class="card card-user card-plain">
-            <div class="image image-plain"></div>
-            <div class="content">
-                <div class="author">
-                    <img class="avatar" src="">
-                    <p><a class="title" ng-click="vm.mood='happiness'" href="#">HAPPINESS</a></p>
-                </div>
-            </div>
-        </div>
+    <div class="col-xs-4 text-center">
+      <button ng-click="vm.mood='fear'" class="btn btn-block btn-round btn-fill btn-info">
+        Fear
+      </button>
     </div>
-    <!-- end mood -->
-
-    <div class="col-sm-2">
-        <div class="card card-user card-plain">
-            <div class="image image-plain"></div>
-            <div class="content">
-                <div class="author">
-                    <img class="avatar" src="">
-                    <p><a class="title" ng-click="vm.mood='sadness'" href="#">SADNESS</a></p>
-                </div>
-            </div>
-        </div>
+    <div class="col-xs-4 text-center">
+      <button ng-click="vm.mood='anger'" class="btn btn-block btn-round btn-fill btn-danger">
+        Anger
+      </button>
     </div>
-    <!-- end mood -->
-
-    <div class="col-sm-2">
-        <div class="card card-user card-plain">
-            <div class="image image-plain"></div>
-            <div class="content">
-                <div class="author">
-                    <img class="avatar" src="">
-                    <p><a class="title" ng-click="vm.mood='surprise'" href="#">SURPRISE</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end mood -->
-
 </div>
-</div>
+<br><br><br><br><br><br>
 
 <!-- tabbies -->
 <nav class="navbar navbar-inverse navbar-fixed-bottom">

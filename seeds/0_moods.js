@@ -4,8 +4,6 @@ exports.seed = function(knex) {
    return knex('moods').insert([{
     mood: 'anger'
    }, {
-    mood: 'contempt'
-   }, {
     mood: 'disgust'
    }, {
     mood: 'fear'
