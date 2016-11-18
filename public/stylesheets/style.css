@@ -1,7 +1,13 @@
+body {
+  padding-bottom: 70px;
+}
+
+.btn-group {
+  padding-left: 4%;
+
 .nav-tabs {
   background-color: #555;
 }
-
 
 body,
 html {
@@ -166,4 +172,5 @@ footer {
 
 p.copyright {
     margin: 15px 0 0;
+>>>>>>> e4f14928714d9a44d9334aa2698e4383c564e2ce
 }
