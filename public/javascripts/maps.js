@@ -108,14 +108,15 @@ app.controller('UsersController', ['$location', '$window', '$scope', 'usersServi
                       img:newUrl,
                       mood: coord.mood
                     }
-                    var infoTemplate = new InfoTemplate("moody person"," username:${username} </br> <img style='width:250px' src='${img}' alt='img'/></br> mood:${mood}")
+                    var infoTemplate = new InfoTemplate("moody person"," username:${username} </br> <img style='width:100px' src='${img}' alt='img'/></br> mood:${mood}")
                     var graphic = new Graphic(coords, symbol,attrs,infoTemplate)
                     map.graphics.add(graphic)
+                    map.infoWindow.resize(160, 120);
                 })
 
-                map.on("load", function() {
-                    map.infoWindow.resize(250, 100);
-                });
+                // map.on("load", function() {
+                //     map.infoWindow.resize(50, 100);
+                // });
 
                 map.on("click", addPoint);
 
