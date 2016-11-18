@@ -27,10 +27,11 @@ app.controller('UsersController', ['$location', '$window', '$scope', 'usersServi
             "esri/renderers/TimeClassBreaksAger",
             "esri/symbols/SimpleLineSymbol",
             "esri/symbols/SimpleMarkerSymbol",
+            "esri/symbols/PictureMarkerSymbol",
             "esri/TimeExtent",
             "dojo/domReady!"
-        ], function(Color, Point, webMercatorUtils, Graphic, FeatureLayer, Map,InfoTemplate,SimpleRenderer, TemporalRenderer,
-            TimeClassBreaksAger, SimpleLineSymbol, SimpleMarkerSymbol, TimeExtent) {
+        ], function(Color, Point, webMercatorUtils, Graphic, FeatureLayer, Map, InfoTemplate, SimpleRenderer, TemporalRenderer,
+            TimeClassBreaksAger, SimpleLineSymbol, SimpleMarkerSymbol, PictureMarkerSymbol, TimeExtent) {
 
 
             var map, featureLayer;
@@ -93,25 +94,46 @@ app.controller('UsersController', ['$location', '$window', '$scope', 'usersServi
                 //   {lat:-105.291135,long:40.010687},{lat:-105.290878,long:40.012183},{lat:-105.278003,long:40.019463},{lat:-105.289375,long:40.019462}
                 // ]
                 dbCoords.forEach(coord => {
+                    var url;
+                    switch (coord.mood) {
+                        case 'anger':
+                            url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Gnome-face-angry.svg/2000px-Gnome-face-angry.svg.png";
+                            break;
+                        case 'disgust':
+                            url = "http://www.clipartkid.com/images/675/sick-face-gallery-for-sick-smiley-face-DrwqnD-clipart.png";
+                            break;
+                        case 'fear':
+                            url = "http://3.bp.blogspot.com/-3vGejYnzOQs/VE0Ysk-Ar2I/AAAAAAAAMR0/D9OyOAg9KFQ/s1600/creepy-clown-emoticon.png";
+                            break;
+                        case 'happiness':
+                            url = "https://s-media-cache-ak0.pinimg.com/originals/45/e8/0f/45e80f1c4e9469c38fd0fa86f83c044f.jpg";
+                            break;
+                        case 'sadness':
+                            url = "http://img05.deviantart.net/ec73/i/2012/343/a/7/sad_face_sweetie_bell_by_tim015-d5niecc.pnghttp://www.clipartkid.com/images/452/in-light-of-what-has-transpired-in-the-last-day-i-wanted-to-do-a-GWaWOB-clipart.gif";
+                            break;
+                        case 'surprise':
+                            url = "http://www.clipartkid.com/images/452/in-light-of-what-has-transpired-in-the-last-day-i-wanted-to-do-a-GWaWOB-clipart.gif";
+                            break;
+                    }
                     var coords = new Point(coord.lat, coord.long)
-                    var symbol = new SimpleMarkerSymbol().setColor(new Color('blue'));
+                    var symbol = new PictureMarkerSymbol(url, 50, 50);
                     var image = coord.user_img
                     var imgArr = image.split('')
-                    imgArr[4] =='s'?imgArr.splice(4,1):null
+                    imgArr[4] == 's' ? imgArr.splice(4, 1) : null
 
                     var newUrl = imgArr.join('')
-                    console.log('image',newUrl);
+                    console.log('image', newUrl);
                     var attrs = {
-                      lat:coord.lat,
-                      long:coord.long,
-                      username:coord.username,
-                      img:newUrl,
-                      mood: coord.mood
+                        lat: coord.lat,
+                        long: coord.long,
+                        username: coord.username,
+                        img: newUrl,
+                        mood: coord.mood
                     }
-                    var infoTemplate = new InfoTemplate("moody person"," username:${username} </br> <img style='width:100px' src='${img}' alt='img'/></br> mood:${mood}")
-                    var graphic = new Graphic(coords, symbol,attrs,infoTemplate)
+                    var infoTemplate = new InfoTemplate("moody person", " username:${username} </br> <img style='width:100px' src='${img}' alt='img'/></br> mood:${mood}")
+                    var graphic = new Graphic(coords, symbol, attrs, infoTemplate)
                     map.graphics.add(graphic)
-                    map.infoWindow.resize(160, 120);
+                    map.infoWindow.resize(160, 170);
                 })
 
                 // map.on("load", function() {
