@@ -23,4 +23,5 @@ A walkthrough will be provided so you can experience the app, but for the time b
 2. **Microsoft Cognitive Services Emotion API**: Used to analyze the most recent face-containing photo and send back emotional analysis
 3. **IBM Watson Personality Insights API**: Used to analyze the user's personality based on their last fifteen instagram posts
 4. **ESRI ArcGIS**: Used to dynamically plot users on a map and use geolocation to plot user's current location
-5. This app uses **AngularJS** for dynamic front-end rendering as well as **Bootstrap** for the static part. To build our database, we used **PostgreSQL** and **Express** to query it.
+5. **socket.io**: Used for the chat feature
+6. This app uses **AngularJS** for dynamic front-end rendering as well as **Bootstrap** for the static part. To build our database, we used **PostgreSQL** and **Express** to query it.
