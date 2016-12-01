@@ -1,7 +1,7 @@
 #insta[mood]
 One of the ways humans cope with emotion is by talking to others. **insta[mood]** is a mobile-first app that aims to analyze true emotions, show the user that they're not alone, and connect people via chat.
 
-*Coming soon: a walkthrough video*
+Check out a walkthrough of our app here: https://youtu.be/N-kzZHl9nB4
 
 Our current deployed version is here: http://lmk-instamood.herokuapp.com/
 
